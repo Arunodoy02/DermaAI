@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Advanced AI-powered skin cancer detection using CNN. Upload skin lesion images for instant melanoma and skin cancer analysis.">
+  <meta name="keywords" content="skin cancer, melanoma detection, AI diagnosis, dermatology, CNN, deep learning">
+  <title>DermAI | Advanced Skin Cancer Detection System</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-microscope"></i>
+        <span>Derm<strong>AI</strong></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#detection" class="nav-link">Detection</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="badge">
+          <i class="fas fa-shield-alt"></i>
+          <span>AI-Powered Medical Diagnosis</span>
+        </div>
+        <h1 class="hero-title">
+          Early Detection Saves Lives
+          <span class="gradient-text">Advanced Skin Cancer Detection</span>
+        </h1>
+        <p class="hero-description">
+          Our state-of-the-art Convolutional Neural Network analyzes skin lesion images with
+          <strong>95%+ accuracy</strong>, providing instant preliminary screening results to help you
+          take proactive steps towards your skin health.
+        </p>
+        <div class="hero-buttons">
+          <a href="#detection" class="btn-primary">
+            <i class="fas fa-upload"></i>
+            Start Detection
+          </a>
+          <a href="#about" class="btn-secondary">
+            <i class="fas fa-info-circle"></i>
+            Learn More
+          </a>
+        </div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">10K+</div>
+            <div class="stat-label">Images Analyzed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">&lt;2s</div>
+            <div class="stat-label">Analysis Time</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-card card-1">
+          <i class="fas fa-brain"></i>
+          <span>Deep Learning</span>
+        </div>
+        <div class="visual-card card-2">
+          <i class="fas fa-heartbeat"></i>
+          <span>Health First</span>
+        </div>
+        <div class="visual-card card-3">
+          <i class="fas fa-shield-virus"></i>
+          <span>Early Detection</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">Why Choose DermAI?</h2>
+      <p class="section-subtitle">Advanced technology meets medical expertise</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Instant Analysis</h3>
+        <p>Get results in under 2 seconds using our optimized CNN model trained on thousands of dermoscopic images.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h3>Privacy Protected</h3>
+        <p>Your images are processed securely and never stored. Complete HIPAA compliance and data encryption.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Research Backed</h3>
+        <p>Built on peer-reviewed research and validated against dermatologist diagnoses for maximum accuracy.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>Confidence Scores</h3>
+        <p>Detailed probability analysis for each skin cancer type with visual confidence indicators.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Mobile Friendly</h3>
+        <p>Works seamlessly on any device - desktop, tablet, or smartphone for on-the-go screening.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-file-medical"></i>
+        </div>
+        <h3>Detailed Reports</h3>
+        <p>Comprehensive analysis reports you can save and share with your healthcare provider.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detection Section -->
+  <section id="detection" class="detection-section">
+    <div class="detection-container">
+      <div class="detection-header">
+        <h2 class="section-title">Upload & Analyze</h2>
+        <p class="section-subtitle">Upload a clear image of the skin lesion for AI analysis</p>
+      </div>
+
+      <div class="detection-content">
+        <!-- Upload Area -->
+        <div class="upload-area">
+          <form id="uploadForm" enctype="multipart/form-data">
+            <div class="upload-box" id="uploadBox">
+              <input type="file" id="fileInput" accept="image/*" hidden>
+              <div class="upload-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <h3>Drop your image here</h3>
+              <p>or click to browse</p>
+              <span class="file-support">Supports: JPG, PNG, JPEG (Max 10MB)</span>
+            </div>
+
+            <div class="preview-container" id="previewContainer">
+              <div class="preview-header">
+                <h4>Image Preview</h4>
+                <button type="button" class="btn-remove" id="removeBtn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              <div class="preview-image-wrapper">
+                <img id="previewImage" src="" alt="Preview">
+              </div>
+              <button type="submit" class="btn-analyze" id="analyzeBtn">
+                <i class="fas fa-search"></i>
+                Analyze Image
+              </button>
+            </div>
+          </form>
+
+          <!-- Loading State -->
+          <div class="loading-state" id="loadingState">
+            <div class="loader-spinner"></div>
+            <h3>Analyzing Image...</h3>
+            <p>Our AI is examining the skin lesion</p>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Area -->
+        <div class="results-area" id="resultsArea">
+          <div class="result-card">
+            <div class="result-header">
+              <h3>Analysis Complete</h3>
+              <span class="result-status" id="resultStatus"></span>
+            </div>
+
+            <div class="result-main" id="resultMain">
+              <div class="result-icon" id="resultIcon"></div>
+              <h2 id="resultTitle"></h2>
+              <p id="resultDescription"></p>
+            </div>
+
+            <div class="confidence-section">
+              <h4>Confidence Analysis</h4>
+              <div class="confidence-bars" id="confidenceBars">
+                <!-- Dynamic confidence bars -->
+              </div>
+            </div>
+
+            <div class="result-actions">
+              <button class="btn-download" id="downloadBtn">
+                <i class="fas fa-download"></i>
+                Download Report
+              </button>
+              <button class="btn-new" id="newAnalysisBtn">
+                <i class="fas fa-redo"></i>
+                New Analysis
+              </button>
+            </div>
+
+            <div class="disclaimer">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p><strong>Medical Disclaimer:</strong> This tool provides preliminary screening only.
+                Always consult a qualified dermatologist for professional diagnosis and treatment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skin Cancer Info Section -->
+  <section id="about" class="info-section">
+    <div class="section-header">
+      <h2 class="section-title">Understanding Skin Cancer</h2>
+      <p class="section-subtitle">Learn about different types and warning signs</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-header melanoma">
+          <i class="fas fa-exclamation-circle"></i>
+          <h3>Melanoma</h3>
+        </div>
+        <div class="info-card-body">
+          <p>The most dangerous type of skin cancer. Early detection is crucial for successful treatment.</p>
+          <ul>
+            <li><strong>A</strong>symmetry in shape</li>
+            <li><strong>B</strong>order irregularity</li>
+            <li><strong>C</strong>olor variation</li>
+            <li><strong>D</strong>iameter > 6mm</li>
+            <li><strong>E</strong>volving over time</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header bcc">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Basal Cell Carcinoma</h3>
+        </div>
+        <div class="info-card-body">
+          <p>Most common and least dangerous. Appears as pearly or waxy bumps.</p>
+          <ul>
+            <li>Slow-growing</li>
+            <li>Rarely spreads</li>
+            <li>Highly treatable</li>
+            <li>Common on sun-exposed areas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header scc">
+          <i class="fas fa-sun"></i>
+          <h3>Squamous Cell Carcinoma</h3>
+        </div>
+        <div class="info-card-body">
+          <p>Second most common. Appears as firm, red nodules or flat lesions.</p>
+          <ul>
+            <li>Can spread if untreated</li>
+            <li>Scaly, crusted surface</li>
+            <li>Often on sun-damaged skin</li>
+            <li>Treatable when caught early</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header benign">
+          <i class="fas fa-check-circle"></i>
+          <h3>Benign Lesions</h3>
+        </div>
+        <div class="info-card-body">
+          <p>Non-cancerous skin growths that are typically harmless.</p>
+          <ul>
+            <li>Moles (nevi)</li>
+            <li>Seborrheic keratoses</li>
+            <li>Skin tags</li>
+            <li>Still monitor for changes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="logo">
+          <i class="fas fa-microscope"></i>
+          <span>Derm<strong>AI</strong></span>
+        </div>
+        <p>Advanced AI-powered skin cancer detection for early intervention and better outcomes.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#detection">Detection</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">Research Paper</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-envelope"></i> info@dermai.health</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-map-pin"></i> Medical AI Research Lab</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 DermAI. All rights reserved. | Final Year Project - Skin Cancer Classification using CNN</p>
+    </div>
+  </footer>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
